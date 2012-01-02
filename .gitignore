@@ -1,0 +1,7 @@
+.settings
+/target/**
+stacktrace.log
+cobertura.ser
+/web-app/WEB-INF/classes/**
+/target-eclipse/**
+

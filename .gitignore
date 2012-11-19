@@ -4,4 +4,4 @@ stacktrace.log
 cobertura.ser
 /web-app/WEB-INF/classes/**
 /target-eclipse/**
-
+/woods.socialauth.sublime-workspace

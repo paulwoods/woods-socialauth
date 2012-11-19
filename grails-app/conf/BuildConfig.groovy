@@ -27,7 +27,7 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         runtime 'mysql:mysql-connector-java:5.1.18'
-        runtime('org.brickred:socialauth:2.0-beta4' ){
+        runtime('org.brickred:socialauth:3.0' ){
         	excludes "xml-apis"
         }
         

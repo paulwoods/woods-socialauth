@@ -1,10 +1,12 @@
 package woods
 
 import org.brickred.socialauth.*
+import org.brickred.socialauth.util.*
 
 class OpenidController {
 
     def index = {
+    	[providers: AuthProviderFactory.providerMap.keySet().sort() as List]
     }
     
     def login = {
@@ -21,7 +23,7 @@ class OpenidController {
 		manager.setSocialAuthConfig(config);
 
 		//URL of YOUR application which will be called after authentication
-		String successUrl = createLink(action:"callback", absolute:true);
+		String successUrl = g.createLink(action:"callback", absolute:true);
 
 		// get Provider URL to which you should redirect for authentication.
 		// id can have values "facebook", "twitter", "yahoo" etc. or the OpenID URL
@@ -43,7 +45,8 @@ class OpenidController {
 
 		// call connect method of manager which returns the provider object. 
 		// Pass request parameter map while calling connect method. 
-		AuthProvider provider = manager.connect(params)
+		Map<String, String> paramsMap = SocialAuthUtil.getRequestParametersMap(request);
+		AuthProvider provider = manager.connect(paramsMap)
 
 		session.provider = provider
 		
